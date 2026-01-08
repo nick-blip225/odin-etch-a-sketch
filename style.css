@@ -1,1 +1,30 @@
-style
+body {
+    background-color: rgb(125, 125, 133);
+    display: flex;
+    flex: 1;
+    height: 800px;
+}
+
+#sketchPad {
+    background-color: rgb(8, 8, 8);
+    display: flex;
+    flex: 1 100%;
+    flex-direction: column;
+    flex-basis: 100%;
+    height: 100%;
+}
+
+.rowDiv {
+    display: flex;
+    flex: 1;
+    background-color: orange;
+    height: 100%;
+    border-radius: 8px;
+    margin: 8px;
+}
+
+.columnDiv {
+    background-color: aliceblue;
+    display: flex;
+    flex: 1;
+}
