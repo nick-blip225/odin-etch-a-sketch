@@ -1,29 +1,40 @@
 body = document.querySelector("body");
 sketchPad = document.createElement("div");
 sketchPad.setAttribute("id", "sketchPad");
+gridResetButton = document.createElement("button");
 
+document.body.appendChild(gridResetButton);
 document.body.appendChild(sketchPad);
-//sketchPad.textContent = "Hello World"
 
-for (let index = 0; index < 16; index++) {
+let gridNum = getGridNum();
+
+function getGridNum() {
+    let num = 1;
+    do {
+        num = prompt("Please enter a number less than 100. ")
+    } while (isNaN(num) || num > 100 || num <= 0);
+    return num;
+};
+
+gridResetButton.textContent = "Click to change the number of cells";
+gridResetButton.addEventListener("click", () => {
+    window.location.reload();
+});
+
+for (let index = 0; index < gridNum; index++) {
     rowDiv = document.createElement("div");
     rowDiv.classList.add("rowDiv");
     sketchPad.appendChild(rowDiv);
-    //rowDiv.textContent = "test"
-    for (let index = 0; index < 16; index++) {
+    for (let index = 0; index < gridNum; index++) {
         columnDiv = document.createElement("div");
         columnDiv.classList.add("columnDiv");
         rowDiv.appendChild(columnDiv);
-        //columnDiv.style.backgroundColor = generateRandomHexColor();
-        //columnDiv.textContent = "More tests";
     }
 }
 
 function generateRandomHexColor() {
-  // Generate a random number between 0 and 16777215 (0xFFFFFF)
   const randomNum = Math.floor(Math.random() * 16777215);
 
-  // Convert the number to a hexadecimal string
   let hexColor = randomNum.toString(16);
 
   // Pad the string with leading zeros if it's too short (must be 6 characters)
