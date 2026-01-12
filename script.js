@@ -28,6 +28,7 @@ for (let index = 0; index < gridNum; index++) {
     for (let index = 0; index < gridNum; index++) {
         columnDiv = document.createElement("div");
         columnDiv.classList.add("columnDiv");
+        columnDiv.style.opacity = "0.0"
         rowDiv.appendChild(columnDiv);
     }
 }
@@ -50,6 +51,7 @@ const cells = document.querySelectorAll(".columnDiv");
 cells.forEach((cell) => {
     cell.addEventListener("mouseover", () => {
         cell.style.backgroundColor = generateRandomHexColor();
+        cell.style.opacity = Math.min(parseFloat(cell.style.opacity) + 0.1, 1.0)
     });
 });
 
